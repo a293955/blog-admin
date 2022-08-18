@@ -65,9 +65,9 @@
         width="80"
       >
         <template slot-scope="scope">
-          <el-tag type="success" v-if="scope.row.loginType == 1">邮箱</el-tag>
-          <el-tag v-if="scope.row.loginType == 2">QQ</el-tag>
-          <el-tag type="danger" v-if="scope.row.loginType == 3">微博</el-tag>
+          <el-tag type="success" v-if="scope.row.loginType === 1">邮箱</el-tag>
+          <el-tag v-if="scope.row.loginType === 2">QQ</el-tag>
+          <el-tag type="danger" v-if="scope.row.loginType === 3">微博</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="roleList" label="用户角色" align="center">

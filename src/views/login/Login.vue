@@ -101,7 +101,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  background: url(http://localhost/config/0w3pdr.jpg) center center / cover
+  background: url(http://192.168.31.108/config/0w3pdr.jpg) center center / cover
     no-repeat;
 }
 .login-card {

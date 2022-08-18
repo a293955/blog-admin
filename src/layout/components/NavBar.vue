@@ -46,7 +46,7 @@
           {{ item.name }}
           <i
             class="el-icon-close"
-            v-if="item.path != '/'"
+            v-if="item.path !== '/'"
             @click.stop="removeTab(item)"
           />
         </span>
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { resetRouter } from "../../router";
+import { resetRouter } from "@/router";
 export default {
   created() {
     //替换面包屑导航
@@ -88,7 +88,7 @@ export default {
       //删除标签
       this.$store.commit("removeTab", tab);
       //如果删除的是当前页则返回上一标签页
-      if (tab.path == this.$route.path) {
+      if (tab.path === this.$route.path) {
         var tabList = this.$store.state.tabList;
         this.$router.push({ path: tabList[tabList.length - 1].path });
       }
@@ -97,10 +97,10 @@ export default {
       this.$store.commit("trigger");
     },
     handleCommand(command) {
-      if (command == "setting") {
+      if (command === "setting") {
         this.$router.push({ path: "/setting" });
       }
-      if (command == "logout") {
+      if (command === "logout") {
         // 调用注销接口
         this.axios.post("/api/logout");
         // 清空用户信息
@@ -145,7 +145,7 @@ export default {
     //标签是否处于当前页
     isActive() {
       return function(tab) {
-        if (tab.path == this.$route.path) {
+        if (tab.path === this.$route.path) {
           return "tabs-view-item-active";
         }
         return "tabs-view-item";
