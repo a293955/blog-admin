@@ -11,13 +11,13 @@
       </span>
       <span
         @click="changeReview(1)"
-        :class="isReview == 1 ? 'active-review' : 'review'"
+        :class="isReview === 1 ? 'active-review' : 'review'"
       >
         正常
       </span>
       <span
         @click="changeReview(0)"
-        :class="isReview == 0 ? 'active-review' : 'review'"
+        :class="isReview === 0 ? 'active-review' : 'review'"
       >
         审核中
       </span>
@@ -28,7 +28,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="messageIdList.length == 0"
+        :disabled="messageIdList.length === 0"
         @click="deleteFlag = true"
       >
         批量删除
@@ -37,7 +37,7 @@
         type="success"
         size="small"
         icon="el-icon-success"
-        :disabled="messageIdList.length == 0"
+        :disabled="messageIdList.length === 0"
         @click="updateMessageReview(null)"
       >
         批量通过
@@ -74,7 +74,7 @@
       <el-table-column type="selection" width="55" />
       <el-table-column prop="avatar" label="头像" align="center" width="150">
         <template slot-scope="scope">
-          <img :src="scope.row.avatar" width="40" height="40" />
+          <img :src="scope.row.avatar" width="40" height="40" alt="" />
         </template>
       </el-table-column>
       <el-table-column
@@ -99,8 +99,8 @@
       <!-- 状态 -->
       <el-table-column prop="isReview" label="状态" width="80" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.isReview == 0" type="warning">审核中</el-tag>
-          <el-tag v-if="scope.row.isReview == 1" type="success">正常</el-tag>
+          <el-tag v-if="scope.row.isReview === 0" type="warning">审核中</el-tag>
+          <el-tag v-if="scope.row.isReview === 1" type="success">正常</el-tag>
         </template>
       </el-table-column>
       <el-table-column
@@ -118,7 +118,7 @@
       <el-table-column label="操作" width="160" align="center">
         <template slot-scope="scope">
           <el-button
-            v-if="scope.row.isReview == 0"
+            v-if="scope.row.isReview === 0"
             size="mini"
             type="success"
             slot="reference"

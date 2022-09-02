@@ -13,7 +13,7 @@
         size="medium"
         class="save-btn"
         @click="saveArticleDraft"
-        v-if="article.id == null || article.status == 3"
+        v-if="article.id == null || article.status === 3"
       >
         保存草稿
       </el-button>
@@ -150,7 +150,7 @@
           </el-select>
         </el-form-item>
         <!-- 文章类型 -->
-        <el-form-item label="原文地址" v-if="article.type != 1">
+        <el-form-item label="原文地址" v-if="article.type !== 1">
           <el-input
             v-model="article.originalUrl"
             placeholder="请填写原文链接"
@@ -165,8 +165,8 @@
             :before-upload="beforeUpload"
             :on-success="uploadCover"
           >
-            <i class="el-icon-upload" v-if="article.articleCover == ''" />
-            <div class="el-upload__text" v-if="article.articleCover == ''">
+            <i class="el-icon-upload" v-if="article.articleCover === ''" />
+            <div class="el-upload__text" v-if="article.articleCover === ''">
               将文件拖到此处，或<em>点击上传</em>
             </div>
             <img
@@ -174,6 +174,7 @@
               :src="article.articleCover"
               width="360px"
               height="180px"
+              alt=""
             />
           </el-upload>
         </el-form-item>
@@ -273,11 +274,11 @@ export default {
       });
     },
     openModel() {
-      if (this.article.articleTitle.trim() == "") {
+      if (this.article.articleTitle.trim() === "") {
         this.$message.error("文章标题不能为空");
         return false;
       }
-      if (this.article.articleContent.trim() == "") {
+      if (this.article.articleContent.trim() === "") {
         this.$message.error("文章内容不能为空");
         return false;
       }
@@ -328,11 +329,11 @@ export default {
       }
     },
     saveArticleDraft() {
-      if (this.article.articleTitle.trim() == "") {
+      if (this.article.articleTitle.trim() === "") {
         this.$message.error("文章标题不能为空");
         return false;
       }
-      if (this.article.articleContent.trim() == "") {
+      if (this.article.articleContent.trim() === "") {
         this.$message.error("文章内容不能为空");
         return false;
       }
@@ -362,11 +363,11 @@ export default {
       this.autoSave = false;
     },
     saveOrUpdateArticle() {
-      if (this.article.articleTitle.trim() == "") {
+      if (this.article.articleTitle.trim() === "") {
         this.$message.error("文章标题不能为空");
         return false;
       }
-      if (this.article.articleContent.trim() == "") {
+      if (this.article.articleContent.trim() === "") {
         this.$message.error("文章内容不能为空");
         return false;
       }
@@ -374,11 +375,11 @@ export default {
         this.$message.error("文章分类不能为空");
         return false;
       }
-      if (this.article.tagNameList.length == 0) {
+      if (this.article.tagNameList.length === 0) {
         this.$message.error("文章标签不能为空");
         return false;
       }
-      if (this.article.articleCover.trim() == "") {
+      if (this.article.articleCover.trim() === "") {
         this.$message.error("文章封面不能为空");
         return false;
       }
@@ -410,8 +411,8 @@ export default {
       // 自动上传文章
       if (
         this.autoSave &&
-        this.article.articleTitle.trim() != "" &&
-        this.article.articleContent.trim() != "" &&
+        this.article.articleTitle.trim() !== "" &&
+        this.article.articleContent.trim() !== "" &&
         this.article.id != null
       ) {
         this.axios
@@ -452,7 +453,7 @@ export default {
       });
     },
     saveCategory() {
-      if (this.categoryName.trim() != "") {
+      if (this.categoryName.trim() !== "") {
         this.addCategory({
           categoryName: this.categoryName
         });
@@ -482,7 +483,7 @@ export default {
       });
     },
     saveTag() {
-      if (this.tagName.trim() != "") {
+      if (this.tagName.trim() !== "") {
         this.addTag({
           tagName: this.tagName
         });
@@ -490,7 +491,7 @@ export default {
       }
     },
     addTag(item) {
-      if (this.article.tagNameList.indexOf(item.tagName) == -1) {
+      if (this.article.tagNameList.indexOf(item.tagName) === -1) {
         this.article.tagNameList.push(item.tagName);
       }
     },
@@ -503,7 +504,7 @@ export default {
     tagClass() {
       return function(item) {
         const index = this.article.tagNameList.indexOf(item.tagName);
-        return index != -1 ? "tag-item-select" : "tag-item";
+        return index !== -1 ? "tag-item-select" : "tag-item";
       };
     }
   }

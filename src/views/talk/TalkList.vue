@@ -37,10 +37,10 @@
           <!-- 发表时间 -->
           <div class="time">
             {{ item.createTime | dateTime }}
-            <span class="top" v-if="item.isTop == 1">
+            <span class="top" v-if="item.isTop === 1">
               <i class="iconfont el-icon-myzhiding" /> 置顶
             </span>
-            <span class="secret" v-if="item.status == 2">
+            <span class="secret" v-if="item.status === 2">
               <i class="iconfont el-icon-mymima" /> 私密
             </span>
           </div>
@@ -179,7 +179,7 @@ export default {
   computed: {
     isActive() {
       return function(status) {
-        return this.status == status ? "active-status" : "status";
+        return this.status === status ? "active-status" : "status";
       };
     }
   }

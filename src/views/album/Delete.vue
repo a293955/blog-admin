@@ -17,7 +17,7 @@
       <el-button
         type="success"
         @click="updatePhotoDelete(null)"
-        :disabled="selectPhotoIdList.length == 0"
+        :disabled="selectPhotoIdList.length === 0"
         size="small"
         icon="el-icon-deleteItem"
       >
@@ -26,7 +26,7 @@
       <el-button
         type="danger"
         @click="batchDeletePhoto = true"
-        :disabled="selectPhotoIdList.length == 0"
+        :disabled="selectPhotoIdList.length === 0"
         size="small"
         icon="el-icon-deleteItem"
       >
@@ -36,7 +36,7 @@
     <!-- 照片列表 -->
     <el-row class="photo-container" :gutter="10" v-loading="loading">
       <!-- 空状态 -->
-      <el-empty v-if="photoList.length == 0" description="暂无照片" />
+      <el-empty v-if="photoList.length === 0" description="暂无照片" />
       <el-checkbox-group
         v-model="selectPhotoIdList"
         @change="handleCheckedPhotoChange"

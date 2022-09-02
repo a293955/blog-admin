@@ -29,7 +29,7 @@
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column prop="avatar" label="头像" align="center" width="100">
         <template slot-scope="scope">
-          <img :src="scope.row.avatar" width="40" height="40" />
+          <img :src="scope.row.avatar" width="40" height="40" alt="" />
         </template>
       </el-table-column>
       <el-table-column prop="nickname" label="昵称" align="center" />

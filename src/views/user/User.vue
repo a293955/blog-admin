@@ -49,7 +49,7 @@
         width="100"
       >
         <template slot-scope="scope">
-          <img :src="scope.row.avatar" width="40" height="40" />
+          <img :src="scope.row.avatar" width="40" height="40" alt="" />
         </template>
       </el-table-column>
       <el-table-column

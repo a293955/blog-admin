@@ -15,7 +15,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="this.categoryIdList.length == 0"
+        :disabled="this.categoryIdList.length === 0"
         @click="isDelete = true"
       >
         批量删除
@@ -212,7 +212,7 @@ export default {
       this.addOrEdit = true;
     },
     addOrEditCategory() {
-      if (this.categoryForm.categoryName.trim() == "") {
+      if (this.categoryForm.categoryName.trim() === "") {
         this.$message.error("分类名不能为空");
         return false;
       }

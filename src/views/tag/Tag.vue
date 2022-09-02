@@ -15,7 +15,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="tagIdList.length == 0"
+        :disabled="tagIdList.length === 0"
         @click="isDelete = true"
       >
         批量删除
@@ -218,7 +218,7 @@ export default {
       this.addOrEdit = true;
     },
     addOrEditTag() {
-      if (this.tagForm.tagName.trim() == "") {
+      if (this.tagForm.tagName.trim() === "") {
         this.$message.error("标签名不能为空");
         return false;
       }

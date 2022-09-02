@@ -15,7 +15,7 @@
     <!-- 相册列表 -->
     <el-row class="page-container" :gutter="12" v-loading="loading">
       <!-- 空状态 -->
-      <el-empty v-if="pageList.length == 0" description="暂无页面" />
+      <el-empty v-if="pageList.length === 0" description="暂无页面" />
       <el-col v-for="item of pageList" :key="item.id" :md="6">
         <div class="page-item">
           <!-- 相册操作 -->
@@ -57,8 +57,8 @@
             :before-upload="beforeUpload"
             :on-success="uploadCover"
           >
-            <i class="el-icon-upload" v-if="pageForum.pageCover == ''" />
-            <div class="el-upload__text" v-if="pageForum.pageCover == ''">
+            <i class="el-icon-upload" v-if="pageForum.pageCover === ''" />
+            <div class="el-upload__text" v-if="pageForum.pageCover === ''">
               将文件拖到此处，或<em>点击上传</em>
             </div>
             <img
@@ -66,6 +66,7 @@
               :src="pageForum.pageCover"
               width="360px"
               height="180px"
+              alt=""
             />
           </el-upload>
         </el-form-item>
@@ -141,11 +142,11 @@ export default {
       });
     },
     addOrEditPage() {
-      if (this.pageForum.pageName.trim() == "") {
+      if (this.pageForum.pageName.trim() === "") {
         this.$message.error("页面名称不能为空");
         return false;
       }
-      if (this.pageForum.pageLabel.trim() == "") {
+      if (this.pageForum.pageLabel.trim() === "") {
         this.$message.error("页面标签不能为空");
         return false;
       }
@@ -188,7 +189,7 @@ export default {
     handleCommand(command) {
       const type = command.substring(0, 6);
       const data = command.substring(6);
-      if (type == "delete") {
+      if (type === "delete") {
         this.pageForum.id = data;
         this.isdeletePage = true;
       } else {

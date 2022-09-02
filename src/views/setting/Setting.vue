@@ -10,7 +10,7 @@
             :show-file-list="false"
             :on-success="updateAvatar"
           >
-            <img v-if="avatar" :src="avatar" class="avatar" />
+            <img v-if="avatar" :src="avatar" class="avatar" alt="" />
             <i v-else class="el-icon-plus avatar-uploader-icon" />
           </el-upload>
           <el-form

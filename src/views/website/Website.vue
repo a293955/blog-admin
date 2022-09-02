@@ -19,6 +19,7 @@
                 v-if="websiteConfigForm.websiteAvatar"
                 :src="websiteConfigForm.websiteAvatar"
                 class="avatar"
+                alt=""
               />
               <i v-else class="el-icon-plus avatar-uploader-icon" />
             </el-upload>
@@ -138,6 +139,7 @@
                     v-if="websiteConfigForm.userAvatar"
                     :src="websiteConfigForm.userAvatar"
                     class="avatar"
+                    alt=""
                   />
                   <i v-else class="el-icon-plus avatar-uploader-icon" />
                 </el-upload>
@@ -155,6 +157,7 @@
                     v-if="websiteConfigForm.touristAvatar"
                     :src="websiteConfigForm.touristAvatar"
                     class="avatar"
+                    alt=""
                   />
                   <i v-else class="el-icon-plus avatar-uploader-icon" />
                 </el-upload>
@@ -173,6 +176,7 @@
                 v-if="websiteConfigForm.articleCover"
                 :src="websiteConfigForm.articleCover"
                 class="cover"
+                alt=""
               />
               <i v-else class="el-icon-plus cover-uploader-icon" />
             </el-upload>
@@ -201,7 +205,7 @@
               <el-radio :label="1">开启</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-row style="width:600px" v-show="websiteConfigForm.isReward == 1">
+          <el-row style="width:600px" v-show="websiteConfigForm.isReward === 1">
             <el-col :md="12">
               <el-form-item label="微信收款码">
                 <el-upload
@@ -214,6 +218,7 @@
                     v-if="websiteConfigForm.weiXinQRCode"
                     :src="websiteConfigForm.weiXinQRCode"
                     class="avatar"
+                    alt=""
                   />
                   <i v-else class="el-icon-plus avatar-uploader-icon" />
                 </el-upload>
@@ -231,6 +236,7 @@
                     v-if="websiteConfigForm.alipayQRCode"
                     :src="websiteConfigForm.alipayQRCode"
                     class="avatar"
+                    alt=""
                   />
                   <i v-else class="el-icon-plus avatar-uploader-icon" />
                 </el-upload>
@@ -245,7 +251,7 @@
           </el-form-item>
           <el-form-item
             label="Websocket地址"
-            v-show="websiteConfigForm.isChatRoom == 1"
+            v-show="websiteConfigForm.isChatRoom === 1"
           >
             <el-input
               v-model="websiteConfigForm.websocketUrl"

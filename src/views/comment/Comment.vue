@@ -11,13 +11,13 @@
       </span>
       <span
         @click="changeReview(1)"
-        :class="isReview == 1 ? 'active-review' : 'review'"
+        :class="isReview === 1 ? 'active-review' : 'review'"
       >
         正常
       </span>
       <span
         @click="changeReview(0)"
-        :class="isReview == 0 ? 'active-review' : 'review'"
+        :class="isReview === 0 ? 'active-review' : 'review'"
       >
         审核中
       </span>
@@ -28,7 +28,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="commentIdList.length == 0"
+        :disabled="commentIdList.length === 0"
         @click="remove = true"
       >
         批量删除
@@ -37,7 +37,7 @@
         type="success"
         size="small"
         icon="el-icon-success"
-        :disabled="commentIdList.length == 0"
+        :disabled="commentIdList.length === 0"
         @click="updateCommentReview(null)"
       >
         批量通过
@@ -88,7 +88,7 @@
       <el-table-column type="selection" width="55" />
       <el-table-column prop="avatar" label="头像" align="center" width="120">
         <template slot-scope="scope">
-          <img :src="scope.row.avatar" width="40" height="40" />
+          <img :src="scope.row.avatar" width="40" height="40" alt="" />
         </template>
       </el-table-column>
       <!-- 评论人昵称 -->
@@ -142,23 +142,23 @@
       <!-- 状态 -->
       <el-table-column prop="isReview" label="状态" width="80" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.isReview == 0" type="warning">审核中</el-tag>
-          <el-tag v-if="scope.row.isReview == 1" type="success">正常</el-tag>
+          <el-tag v-if="scope.row.isReview === 0" type="warning">审核中</el-tag>
+          <el-tag v-if="scope.row.isReview === 1" type="success">正常</el-tag>
         </template>
       </el-table-column>
       <!-- 来源 -->
       <el-table-column label="来源" align="center" width="100">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.type == 1">文章</el-tag>
-          <el-tag v-if="scope.row.type == 2" type="warning">友链</el-tag>
-          <el-tag v-if="scope.row.type == 3" type="danger">说说</el-tag>
+          <el-tag v-if="scope.row.type === 1">文章</el-tag>
+          <el-tag v-if="scope.row.type === 2" type="warning">友链</el-tag>
+          <el-tag v-if="scope.row.type === 3" type="danger">说说</el-tag>
         </template>
       </el-table-column>
       <!-- 列操作 -->
       <el-table-column label="操作" width="160" align="center">
         <template slot-scope="scope">
           <el-button
-            v-if="scope.row.isReview == 0"
+            v-if="scope.row.isReview === 0"
             size="mini"
             type="success"
             slot="reference"

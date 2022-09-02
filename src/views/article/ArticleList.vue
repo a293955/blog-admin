@@ -21,11 +21,11 @@
     <!-- 表格操作 -->
     <div class="operation-container">
       <el-button
-        v-if="isDelete == 0"
+        v-if="isDelete === 0"
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="articleIdList.length == 0"
+        :disabled="articleIdList.length === 0"
         @click="updateIsDelete = true"
       >
         批量删除
@@ -35,7 +35,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="articleIdList.length == 0"
+        :disabled="articleIdList.length === 0"
         @click="remove = true"
       >
         批量删除
@@ -44,7 +44,7 @@
         type="success"
         size="small"
         icon="el-icon-download"
-        :disabled="articleIdList.length == 0"
+        :disabled="articleIdList.length === 0"
         style="margin-right:1rem"
         @click="isExport = true"
       >
@@ -180,15 +180,15 @@
             "
           />
           <i
-            v-if="scope.row.status == 1"
+            v-if="scope.row.status === 1"
             class="iconfont el-icon-mygongkai article-status-icon"
           />
           <i
-            v-if="scope.row.status == 2"
+            v-if="scope.row.status === 2"
             class="iconfont el-icon-mymima article-status-icon"
           />
           <i
-            v-if="scope.row.status == 3"
+            v-if="scope.row.status === 3"
             class="iconfont el-icon-mycaogaoxiang article-status-icon"
           />
         </template>
@@ -274,7 +274,7 @@
             v-model="scope.row.isTop"
             active-color="#13ce66"
             inactive-color="#F4F4F5"
-            :disabled="scope.row.isDelete == 1"
+            :disabled="scope.row.isDelete === 1"
             :active-value="1"
             :inactive-value="0"
             @change="changeTop(scope.row)"
@@ -288,7 +288,7 @@
             type="primary"
             size="mini"
             @click="editArticle(scope.row.id)"
-            v-if="scope.row.isDelete == 0"
+            v-if="scope.row.isDelete === 0"
           >
             编辑
           </el-button>
@@ -296,7 +296,7 @@
             title="确定删除吗？"
             style="margin-left:10px"
             @confirm="updateArticleDelete(scope.row.id)"
-            v-if="scope.row.isDelete == 0"
+            v-if="scope.row.isDelete === 0"
           >
             <el-button size="mini" type="danger" slot="reference">
               删除
@@ -304,7 +304,7 @@
           </el-popconfirm>
           <el-popconfirm
             title="确定恢复吗？"
-            v-if="scope.row.isDelete == 1"
+            v-if="scope.row.isDelete === 1"
             @confirm="updateArticleDelete(scope.row.id)"
           >
             <el-button size="mini" type="success" slot="reference">
@@ -313,7 +313,7 @@
           </el-popconfirm>
           <el-popconfirm
             style="margin-left:10px"
-            v-if="scope.row.isDelete == 1"
+            v-if="scope.row.isDelete === 1"
             title="确定彻底删除吗？"
             @confirm="deleteArticles(scope.row.id)"
           >
@@ -442,7 +442,7 @@ export default {
       } else {
         param.idList = this.articleIdList;
       }
-      param.isDelete = this.isDelete == 0 ? 1 : 0;
+      param.isDelete = this.isDelete === 0 ? 1 : 0;
       this.axios.put("/api/admin/articles", param).then(({ data }) => {
         if (data.flag) {
           this.$notify.success({
@@ -668,7 +668,7 @@ export default {
     },
     isActive() {
       return function(status) {
-        return this.activeStatus == status ? "active-status" : "status";
+        return this.activeStatus === status ? "active-status" : "status";
       };
     }
   }

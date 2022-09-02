@@ -60,8 +60,8 @@ export default {
 }
 .fade-transform-box {
   position: relative;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
   width: 100%;
   overflow: hidden;
 }

@@ -276,19 +276,19 @@ export default {
       this.menuForm.icon = icon;
     },
     saveOrUpdateMenu() {
-      if (this.menuForm.name.trim() == "") {
+      if (this.menuForm.name.trim() === "") {
         this.$message.error("菜单名不能为空");
         return false;
       }
-      if (this.menuForm.icon.trim() == "") {
+      if (this.menuForm.icon.trim() === "") {
         this.$message.error("菜单icon不能为空");
         return false;
       }
-      if (this.menuForm.component.trim() == "") {
+      if (this.menuForm.component.trim() === "") {
         this.$message.error("菜单组件路径不能为空");
         return false;
       }
-      if (this.menuForm.path.trim() == "") {
+      if (this.menuForm.path.trim() === "") {
         this.$message.error("菜单访问路径不能为空");
         return false;
       }

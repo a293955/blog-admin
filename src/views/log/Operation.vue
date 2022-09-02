@@ -7,7 +7,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="this.logIdList.length == 0"
+        :disabled="this.logIdList.length === 0"
         @click="isDelete = true"
       >
         批量删除

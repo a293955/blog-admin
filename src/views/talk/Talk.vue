@@ -26,6 +26,7 @@
                 class="emoji"
                 width="24"
                 height="24"
+                alt=""
               />
             </span>
             <i
@@ -76,7 +77,7 @@
             type="primary"
             size="small"
             @click="saveOrUpdateTalk"
-            :disabled="talk.content == ''"
+            :disabled="talk.content === ''"
           >
             发布
           </el-button>
@@ -147,14 +148,14 @@ export default {
       this.$refs.editor.addText(
         "<img src= '" +
           value +
-          "' width='24'height='24' alt=" +
+          "' width='24' height='24' alt=" +
           key +
           " style='margin: 0 1px;vertical-align: text-bottom'/>"
       );
     },
     handleRemove(file) {
       this.uploadList.forEach((item, index) => {
-        if (item.url == file.url) {
+        if (item.url === file.url) {
           this.uploadList.splice(index, 1);
         }
       });
@@ -176,7 +177,7 @@ export default {
       });
     },
     saveOrUpdateTalk() {
-      if (this.talk.content.trim() == "") {
+      if (this.talk.content.trim() === "") {
         this.$message.error("说说内容不能为空");
         return false;
       }
@@ -209,7 +210,7 @@ export default {
     dropdownTitle() {
       var desc = "";
       this.statusList.forEach(item => {
-        if (item.status == this.talk.status) {
+        if (item.status === this.talk.status) {
           desc = item.desc;
         }
       });

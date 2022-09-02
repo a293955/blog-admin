@@ -15,7 +15,7 @@
         type="danger"
         size="small"
         icon="el-icon-delete"
-        :disabled="linkIdList.length == 0"
+        :disabled="linkIdList.length === 0"
         @click="deleteFlag = true"
       >
         批量删除
@@ -57,7 +57,7 @@
         width="180"
       >
         <template slot-scope="scope">
-          <img :src="scope.row.linkAvatar" width="40" height="40" />
+          <img :src="scope.row.linkAvatar" width="40" height="40" alt="" />
         </template>
       </el-table-column>
       <el-table-column prop="linkName" label="链接名" align="center" />
@@ -226,19 +226,19 @@ export default {
       this.addOrEdit = true;
     },
     addOrEditCategory() {
-      if (this.linkForm.linkName.trim() == "") {
+      if (this.linkForm.linkName.trim() === "") {
         this.$message.error("友链名不能为空");
         return false;
       }
-      if (this.linkForm.linkAvatar.trim() == "") {
+      if (this.linkForm.linkAvatar.trim() === "") {
         this.$message.error("友链头像不能为空");
         return false;
       }
-      if (this.linkForm.linkIntro.trim() == "") {
+      if (this.linkForm.linkIntro.trim() === "") {
         this.$message.error("友链介绍不能为空");
         return false;
       }
-      if (this.linkForm.linkAddress.trim() == "") {
+      if (this.linkForm.linkAddress.trim() === "") {
         this.$message.error("友链地址不能为空");
         return false;
       }
